@@ -3,7 +3,7 @@ import pandas as pd
 import sklearn
 import joblib
 import xgboost
-
+import pickle
 
 st.write("""
 # House Price Prediction
@@ -65,7 +65,7 @@ df2 = user_input_features()
 st.subheader('User Input parameters :')
 st.write(df2)
 
-model = joblib.load('finale2.joblib')
+model = pickle.load(open("model.json", 'rb'))
 pred = int(model.predict(df2))
 
 st.subheader('Prediction :')
